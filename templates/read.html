@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<div>
+
+</div>
+    <form  id="upload_form" action="{% url 'read' %}" method="POST"
+              enctype="multipart/form-data">
+            {% csrf_token %}
+            <input id="upload" type="file" style="width: 50%" name="file" id="filename">
+            <br>
+            <p><button class="btn btn-primary btn-lg" type="button" onclick="Upload()">确认提交</button>
+            
+            
+        </form>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script>
+ function Upload(){
+    var File = $('#upload').get(0).files[0];
+    console.info(File);
+    if(File){
+        $('#upload_form').submit();
+    }else{
+        alert("请正确上传文件！");
+    }
+
+ }
+
+</script>
+</html>
